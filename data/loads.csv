@@ -1,0 +1,4 @@
+load_id,origin,destination,pickup_datetime,delivery_datetime,equipment_type,loadboard_rate,notes,weight,commodity_type,num_of_pieces,miles,dimensions
+L001,Dallas,Chicago,2025-08-28T10:00:00,2025-08-29T18:00:00,Dry Van,1800,"Handle with care",10000,Electronics,400,900,"48x40x60"
+L002,Atlanta,Newark,2025-08-27T08:00:00,2025-08-28T16:00:00,Reefer,2200,"Refrigerated",12000,Frozen Food,300,850,"45x42x55"
+L003,Los Angeles,Seattle,2025-08-30T09:00:00,2025-08-31T17:00:00,Dry Van,2000,"No special instructions",9500,Clothing,500,1150,"48x40x70"
