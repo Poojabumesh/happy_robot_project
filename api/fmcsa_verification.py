@@ -1,30 +1,42 @@
+import requests
+
 def verify_mc_number(mc_number: str, api_key: str) -> dict:
-    import requests
-
     url = f"https://mobile.fmcsa.dot.gov/qc/services/carriers/{mc_number}?webKey={api_key}"
-    response = requests.get(url)
-
-    if response.status_code != 200:
-        return {"status": "error", "message": f"FMCSA API error {response.status_code}", "authorized": False}
-
-    data = response.json()
-    content = data.get("content")
-
-    if not content:
-        return {
-            "status": "invalid",
-            "message": "MC number not found or not active",
-            "authorized": False
-        }
+    print(f"➡️ Requesting FMCSA: {url}")
 
     try:
-        carrier_info = content[0]
+        response = requests.get(url)
+        print("⬅️ Status Code:", response.status_code)
+        print("⬅️ Response Text:", response.text)
+
+        if response.status_code != 200:
+            return {
+                "status": "error",
+                "message": f"FMCSA API error {response.status_code}",
+                "authorized": False
+            }
+
+        data = response.json()
+        carrier_info = data.get("content", {}).get("carrier")
+
+        if not carrier_info:
+            return {
+                "status": "invalid",
+                "message": "MC number not found or no carrier data.",
+                "authorized": False
+            }
+
+        status_code = carrier_info.get("statusCode", "").upper()
+        legal_name = carrier_info.get("legalName", "Unknown")
+        operation_desc = carrier_info.get("carrierOperation", {}).get("carrierOperationDesc", "Unknown")
+
         return {
-            "status": carrier_info.get("status", "Unknown"),
-            "carrierOperation": carrier_info.get("carrierOperation", "Unknown"),
-            "legalName": carrier_info.get("legalName", "Unknown"),
-            "authorized": carrier_info.get("status", "").lower() == "active"
+            "status": status_code,
+            "legalName": legal_name,
+            "carrierOperation": operation_desc,
+            "authorized": status_code == "A"
         }
+
     except Exception as e:
         return {
             "status": "error",
