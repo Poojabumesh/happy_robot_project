@@ -6,7 +6,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-API_KEY = "your-secret-api-key"
+API_KEY = load_api_key()
 API_KEY_NAME = "x-api-key"
 
 @app.middleware("http")
@@ -33,8 +33,6 @@ def root():
 @app.post("/verify_mc")
 async def verify_mc(data: MCRequest):
     mc_number = data.mc_number
-
-    api_key = load_api_key()
     result = verify_mc_number(mc_number, api_key)
     return result
 
