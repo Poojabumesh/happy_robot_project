@@ -1,0 +1,16 @@
+.env
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# Ignore local VS Code settings or system files
+.vscode/
+.DS_Store
+
+# Ignore log files
+*.log

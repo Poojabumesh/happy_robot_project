@@ -1,10 +1,20 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from .load_matcher import load_available
 from .fmcsa_verification import verify_mc_number
 from utils.secrets import load_api_key
 from pydantic import BaseModel
 
 app = FastAPI()
+
+API_KEY = "your-secret-api-key"
+API_KEY_NAME = "x-api-key"
+
+@app.middleware("http")
+async def verify_api_key(request: Request, call_next):
+    api_key = request.headers.get(API_KEY_NAME)
+    if api_key != API_KEY:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    return await call_next(request)
 
 class MCRequest(BaseModel):
     mc_number : str

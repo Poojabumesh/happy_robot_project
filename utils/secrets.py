@@ -1,3 +1,9 @@
-def load_api_key(filepath="utils/api_key.txt"):
-    with open(filepath, "r") as f:
-        return f.read().strip()
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def load_api_key():
+    return os.getenv("API_KEY")
+
+
