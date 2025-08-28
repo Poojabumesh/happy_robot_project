@@ -7,7 +7,7 @@ from pydantic import BaseModel
 app = FastAPI()
 
 API_KEY = load_api_key()
-print("Loaded API KEY:", API_KEY) 
+print("🎯 Render picked up API_KEY:", load_api_key()) 
 API_KEY_NAME = "x-api-key"
 
 @app.middleware("http")
