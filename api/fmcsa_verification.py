@@ -3,6 +3,7 @@ import requests
 def verify_mc_number(mc_number: str, api_key: str) -> dict:
     url = f"https://mobile.fmcsa.dot.gov/qc/services/carriers/{mc_number}?webKey={api_key}"
     print(f"➡️ Requesting FMCSA: {url}")
+    print("Using FMCSA API key:", api_key)    
 
     try:
         response = requests.get(url)
