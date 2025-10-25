@@ -74,7 +74,7 @@ Captures:
 
 ---
 
-## 🖥️ Architecture Diagram (Conceptual)
+{## 🖥️ Architecture Diagram (Conceptual)
 Carrier Call → Voice Agent → FMCSA API → Intake
 ↓            ↓
 FastAPI Load Matcher ← CSV Dataset
@@ -82,7 +82,7 @@ FastAPI Load Matcher ← CSV Dataset
 Rate Negotiation Logic → Dispatcher / No-Match
 ↓
 Google Sheets Logging → Retool Dashboard
-
+}
 ---
 
 ## 🔗 Demo & Links
