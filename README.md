@@ -74,7 +74,7 @@ Captures:
 
 ---
 
-{## 🖥️ Architecture Diagram (Conceptual)
+<!-- ## 🖥️ Architecture Diagram (Conceptual)
 Carrier Call → Voice Agent → FMCSA API → Intake
 ↓            ↓
 FastAPI Load Matcher ← CSV Dataset
@@ -82,7 +82,8 @@ FastAPI Load Matcher ← CSV Dataset
 Rate Negotiation Logic → Dispatcher / No-Match
 ↓
 Google Sheets Logging → Retool Dashboard
-}
+-->
+
 ---
 
 ## 🔗 Demo & Links
@@ -92,9 +93,6 @@ Google Sheets Logging → Retool Dashboard
 
 - **FastAPI Load Matcher (Render):**  
   https://happy-robot-project.onrender.com/docs
-
-- **HappyRobot Voice Agent Workflow:**  
-  https://v2.platform.happyrobot.ai/dfe-pooja/workflow/z2675golyx9x/editor/x9q35ull7730
 
 - **Analytics Dashboard (Retool):**  
   https://poojabumesh.retool.com/apps/b47893e8-843a-11f0-a538-131b401e2563/Inbound%20Career%20Sales%20(Moved%20at%202025-08-28%2020%3A04%3A58.866)/page1
