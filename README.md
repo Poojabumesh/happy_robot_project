@@ -88,9 +88,6 @@ Google Sheets Logging → Retool Dashboard
 
 ## 🔗 Demo & Links
 
-- **GitHub Repo:**  
-  https://github.com/Poojabumesh/happy_robot_project
-
 - **FastAPI Load Matcher (Render):**  
   https://happy-robot-project.onrender.com/docs
 
